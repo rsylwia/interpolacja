@@ -12,13 +12,14 @@ library(pgirmess)
 library(ggplot2)
 library(raster)
 
-bb_data <- read_sf(dsn = "D:/studia/GEOINFORMATYKA/dane/granica.shp")
-pp_data <-read_sf(dsn = "D:/studia/GEOINFORMATYKA/magisterka/daen_21_03/magister/pm10_2020_poprawne.shp")
 
-granica1 = read_sf(dsn = "granica.shp")
+bb_data <- st_read(dsn = "./granica.shp")
+pp_data <-st_read(dsn = "./pm10_2020_poprawne.shp")
+
+granica1 = st_read(dsn = "./granica.shp")
 granica = st_as_sf(granica1)
 
-punkty1 = read_sf(dsn = "D:/studia/GEOINFORMATYKA/magisterka/daen_21_03/magister/pm10_2020_poprawne.shp")
+punkty1 = st_read(dsn = "./pm10_2020_poprawne.shp")
 punkty = st_as_sf(punkty1)
 
 punkty_pol = st_transform(punkty, 4326)
